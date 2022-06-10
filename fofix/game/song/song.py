@@ -50,6 +50,10 @@ from fofix.core.Theme import *
 from fofix.core.Theme import hexToColor, colorToHex
 from fofix.game.song.songconstants import *
 
+import PyRTMA2 as RTMA
+import climber_config as RTMA_types
+import ctypes
+
 
 log = logging.getLogger(__name__)
 
@@ -2070,6 +2074,14 @@ class Song(object):
                     track.setVolume(volume)
 
     def stop(self):
+    
+        # notify Executive that song is done -> this will end the trial
+        out_msg = RTMA.CMessage(RTMA_types.MT_EXECUTIVE_CTRL)
+        msg_data = RTMA_types.MDF_EXECUTIVE_CTRL()
+        msg_data.fail = ctypes.c_int16(1)
+        RTMA.copy_to_msg(msg_data, out_msg)
+        self.engine.rtmaModule.SendMessage(out_msg)
+    
         for tracks in self.tracks:
             for track in tracks:
                 track.reset()
