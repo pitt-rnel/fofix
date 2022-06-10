@@ -102,7 +102,7 @@ class Instrument(object):
         self.tempoBpm = 120  # default is NEEDED here...
 
         self.beatsPerBoard            = 5.0
-        self.promptTime               = 1000 # amount of advance notice time for upcoming notes
+        self.promptTime               = 200 # amount of advance notice time for upcoming notes
         self.boardWidth               = self.engine.theme.neckWidth
         self.boardLength              = self.engine.theme.neckLength
         self.beatsPerUnit             = self.beatsPerBoard / self.boardLength
@@ -606,8 +606,8 @@ class Instrument(object):
             # Percentage mode - pre-calculated
             self.neckSpeed = self.speed
 
-        self.earlyMargin = 250 - bpm/5 - 70*self.hitw
-        self.lateMargin = 250 - bpm/5 - 70*self.hitw
+        self.earlyMargin = 500 - bpm/5 - 70*self.hitw
+        self.lateMargin = 500 - bpm/5 - 70*self.hitw
 
         if self.muteSustainReleases == 4:
             # tight

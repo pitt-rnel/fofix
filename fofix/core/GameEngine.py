@@ -197,7 +197,8 @@ class GameEngine(object):
         # RTMA: Establish connection to MessageManager
         
         rtma_mid = RTMA_types.MID_FOFIX
-        rtma_server = "localhost:7111"
+        sysConfig = RTMA_types.loadLocalSysConfig()
+        rtma_server = str(sysConfig["server"]) #"localhost:7111"
         log.debug("Connecting to Message Manager server at " + rtma_server)
         self.rtmaModule = RTMA.RTMA_Module(rtma_mid, 0)
         self.rtmaModule.ConnectToMMM(rtma_server)
