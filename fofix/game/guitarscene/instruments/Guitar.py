@@ -526,6 +526,7 @@ class Guitar(Instrument):
             out_msg = RTMA.CMessage(RTMA_types.MT_FOFIX_PROMPT)
             msg_data = RTMA_types.MDF_FOFIX_PROMPT()
             msg_data.note = n[1].number
+            msg_data.length = int(1000)
             msg_data.target_time = n[0]
             msg_data.game_time = self.scene.songTime
             RTMA.copy_to_msg(msg_data, out_msg)
