@@ -51,7 +51,7 @@ from fofix.core.Theme import hexToColor, colorToHex
 from fofix.game.song.songconstants import *
 
 import PyRTMA2 as RTMA
-import climber_config as RTMA_types
+import messages_defs_swig as RTMA_types
 import ctypes
 
 

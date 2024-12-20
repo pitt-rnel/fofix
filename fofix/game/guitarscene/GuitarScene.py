@@ -57,7 +57,7 @@ from fofix.game.guitarscene.instruments import *
 from fofix.game.song import Note, TextEvent, PictureEvent, loadSong, Bars, VocalPhrase
 
 import PyRTMA2 as RTMA
-import climber_config as RTMA_types
+import messages_defs_swig as RTMA_types
 
 
 log = logging.getLogger(__name__)

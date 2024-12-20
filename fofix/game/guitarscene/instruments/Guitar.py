@@ -43,7 +43,7 @@ from fofix.core.Shader import shaders
 from fofix.core.Mesh import Mesh
 
 import PyRTMA2 as RTMA
-import climber_config as RTMA_types
+import messages_defs_swig as RTMA_types
 
 log = logging.getLogger(__name__)
 

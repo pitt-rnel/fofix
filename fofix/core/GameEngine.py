@@ -65,7 +65,7 @@ from fofix.game.World import World
 from fofix.game.Debug import DebugLayer
 
 import PyRTMA2 as RTMA
-import climber_config as RTMA_types
+import messages_defs_swig as RTMA_types
 
 log = logging.getLogger(__name__)
 
@@ -198,7 +198,7 @@ class GameEngine(object):
         
         rtma_mid = RTMA_types.MID_FOFIX
         sysConfig = RTMA_types.loadLocalSysConfig()
-        rtma_server = str(sysConfig["server"]) #"localhost:7111"
+        rtma_server = str(192.168.110.40:7111) #"localhost:7111" #Pittsburgh: 192.168.110.40:7111
         log.debug("Connecting to Message Manager server at " + rtma_server)
         self.rtmaModule = RTMA.RTMA_Module(rtma_mid, 0)
         self.rtmaModule.ConnectToMMM(rtma_server)
