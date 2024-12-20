@@ -64,6 +64,15 @@ from fofix.game import Dialogs
 from fofix.game.World import World
 from fofix.game.Debug import DebugLayer
 
+# Paths to 27 build files
+CLIMBER_SWIG_DEFS = os.getenv("CLIMBER_MESSAGE") + "/build/climber_message"
+PYRTMA_PATH = os.getenv("RTMA") + "/lang/python/"
+
+# Append the PyRTMA 27 Swig Build Paths
+sys.path.append(PYRTMA_PATH)
+sys.path.append(CLIMBER_SWIG_DEFS)
+
+# import 27 rtma modules
 import PyRTMA2 as RTMA
 import message_defs_swig as RTMA_types
 
@@ -195,10 +204,8 @@ class GameEngine(object):
         self.tutorialFolder = "tutorials"
 
         # RTMA: Establish connection to MessageManager
-        
         rtma_mid = RTMA_types.MID_FOFIX
-        sysConfig = RTMA_types.loadLocalSysConfig()
-        rtma_server = str(192.168.110.40:7111) #"localhost:7111" #Pittsburgh: 192.168.110.40:7111
+        rtma_server = "192.168.110.40:7111" #Debug: "localhost:7111" #Pittsburgh: "192.168.110.40:7111"
         log.debug("Connecting to Message Manager server at " + rtma_server)
         self.rtmaModule = RTMA.RTMA_Module(rtma_mid, 0)
         self.rtmaModule.ConnectToMMM(rtma_server)

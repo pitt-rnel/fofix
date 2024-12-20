@@ -36,6 +36,7 @@ from __future__ import with_statement
 from math import degrees, atan
 import logging
 import os
+import sys
 import random
 
 import OpenGL.GL as gl
@@ -55,6 +56,14 @@ from fofix.game.Scorekeeper import ScoreCard
 from fofix.game.guitarscene import Stage
 from fofix.game.guitarscene.instruments import *
 from fofix.game.song import Note, TextEvent, PictureEvent, loadSong, Bars, VocalPhrase
+
+# Paths to 27 build files
+CLIMBER_SWIG_DEFS = os.getenv("CLIMBER_MESSAGE") + "/build/climber_message"
+PYRTMA_PATH = os.getenv("RTMA") + "/lang/python/"
+
+# Append the PyRTMA 27 Swig Build Paths
+sys.path.append(PYRTMA_PATH)
+sys.path.append(CLIMBER_SWIG_DEFS)
 
 import PyRTMA2 as RTMA
 import message_defs_swig as RTMA_types
