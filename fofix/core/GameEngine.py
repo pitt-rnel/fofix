@@ -65,7 +65,7 @@ from fofix.game.World import World
 from fofix.game.Debug import DebugLayer
 
 import PyRTMA2 as RTMA
-import messages_defs_swig as RTMA_types
+import message_defs_swig as RTMA_types
 
 log = logging.getLogger(__name__)
 
